@@ -2,6 +2,7 @@
 // CONFIGURACIÓN Y VARIABLES GLOBALES
 // ===================================
 
+// URL del Web App de Google Apps Script (REEMPLAZAR CON LA URL REAL)
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztWaAHnVEiwWSGoMypdDy20WPPyeQxI1FtMdaOZCHWABvlXa2Ku-vzoPMwWNDveFUYOQ/exec';
 
 // Estado de la aplicación
@@ -381,10 +382,16 @@ async function printReceipts(orderNumber, orderData) {
     // Generar contenido de la factura
     const receiptContent = generateReceiptContent(orderNumber, orderData);
     
-    // Imprimir dos veces: una para el cliente y otra para la cocina
-    for (let i = 0; i < 2; i++) {
-        const copy = i === 0 ? 'CLIENTE' : 'COCINA';
-        await printToThermalPrinter(receiptContent, copy);
+    // Configurar número de copias y sus nombres
+    const copies = [
+        'CLIENTE',  // Primera copia
+        'COCINA'    // Segunda copia
+        // Agrega más si necesitas: 'CAJA', 'MESERO', etc.
+    ];
+    
+    // Imprimir cada copia
+    for (let i = 0; i < copies.length; i++) {
+        await printToThermalPrinter(receiptContent, copies[i]);
     }
 }
 
