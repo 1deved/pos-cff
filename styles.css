@@ -1076,3 +1076,60 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200') center/cover;
+    filter: blur(8px) brightness(0.3);
+    z-index: -1;
+}
+
+/* Badges para tipo de orden */
+.order-type-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-delivery {
+  background: var(--primary-orange);
+  color: var(--dark-bg);
+}
+
+.badge-local {
+  background: var(--primary-yellow);
+  color: var(--dark-bg);
+}
+
+/* Badges para método de pago */
+.payment-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-cash {
+  background: #4ade80;
+  color: #1a1a1a;
+}
+
+.badge-transfer {
+  background: #60a5fa;
+  color: #1a1a1a;
+}
+
+/* Celda de total */
+.total-cell {
+  font-weight: 700;
+  color: var(--primary-yellow);
+  font-size: 14px;
+}
